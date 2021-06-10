@@ -1182,8 +1182,9 @@ namespace LCD1IN8 {
     
     //% blockId=LCD_Display
     //% blockGap=8
-    //% block="Show Full Screen|l1 %ligne1|l2 %ligne2"
-    //% ligne1.min=1 ligne1.max=128 ligne2.min=1 ligne2.max=128
+    //% block="Show Screen from l1 to l2|l1 %ligne1|l2 %ligne2"
+    //% ligne1.min=0 ligne1.max=128 ligne1.defl=0
+    //% ligne2.min=0 ligne2.max=128 ligne2.defl=128
     //% weight=190
     export function LCD_Display(ligne1:number, ligne2:number): void {
         if (ligne1 > ligne2)
