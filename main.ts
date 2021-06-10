@@ -4,7 +4,7 @@
 * | Function    :   Contorl 1.8inch lcd Show (only CAPS and Numbers)
 * | Info        :
 *----------------
-* | This version:   V2.0.2d
+* | This version:   V2.0.2e
 * | Date        :   2021-06-10
 * | Info        :   for micro:bit v2
 *
@@ -1200,7 +1200,7 @@ namespace LCD1IN8 {
 	ligne2 = Math.round(ligne2/2);
 
 	let rdata = 0;
-        for (let i = 0; i < ligne2-ligne1; i++) { // lecture de deux lignes a la fois
+        for (let i = ligne1; i < ligne2; i++) { // lecture de deux lignes a la fois
             pins.digitalWritePin(DigitalPin.P2, 0);
             pins.spiWrite(SRAM_CMD_READ);
             pins.spiWrite(0);
