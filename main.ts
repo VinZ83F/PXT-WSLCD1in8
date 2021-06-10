@@ -1182,10 +1182,15 @@ namespace LCD1IN8 {
     
     //% blockId=LCD_Display
     //% blockGap=8
-    //% block="Show Full Screen"
+    //% block="Show Full Screen|l1 %ligne1|l2 %ligne2"
+    //% ligne1.min=1 ligne1.max=128 ligne2.min=1 ligne2.max=128
     //% weight=190
-    export function LCD_Display(): void {
-        SPIRAM_Set_Mode(SRAM_STREAM_MODE);
+    export function LCD_Display(ligne1:Number, ligne2:Number): void {
+	if (ligne1 > ligne2)
+            Swop_AB(ligne1, ligne2);
+	ligne1 = Math.round(ligne1/2);
+	ligne2 = Math.round(ligne2/2);
+	SPIRAM_Set_Mode(SRAM_STREAM_MODE);
         LCD_SetWindows(0, 0, 160, 128);
         let rbuf = [];
         for (let i=0; i<640; i++) {
@@ -1193,7 +1198,7 @@ namespace LCD1IN8 {
         }
 
         let rdata = 0;
-        for (let i = 0; i < 6; i++) { // read 2line 64
+        for (let i = ligne1; i < ligne2; i++) { // read 2line 64
             pins.digitalWritePin(DigitalPin.P2, 0);
             pins.spiWrite(SRAM_CMD_READ);
             pins.spiWrite(0);
