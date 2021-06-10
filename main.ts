@@ -1,7 +1,7 @@
 /*****************************************************************************
 * | File      	:   1in8LCD.ts
-* | Author      :   hnwangkg-ezio for Waveshare Modif Vincent CAMBRAY
-* | Function    :   Contorl 1.8inch lcd Show (Light)
+* | Author      :   hnwangkg-ezio for Waveshare Modif VinZ83F
+* | Function    :   Contorl 1.8inch lcd Show (only CAPS and Numbers)
 * | Info        :
 *----------------
 * | This version:   V2.0
@@ -1193,7 +1193,7 @@ namespace LCD1IN8 {
         }
 
         let rdata = 0;
-        for (let i = 0; i < 64; i++) { // read 2line
+        for (let i = 0; i < 12; i++) { // read 2line 64
             pins.digitalWritePin(DigitalPin.P2, 0);
             pins.spiWrite(SRAM_CMD_READ);
             pins.spiWrite(0);
