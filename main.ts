@@ -1186,7 +1186,7 @@ namespace LCD1IN8 {
     //% weight=190
     export function LCD_Display(): void {
         SPIRAM_Set_Mode(SRAM_STREAM_MODE);
-        LCD_SetWindows(0, 0, 160, 12);
+        LCD_SetWindows(0, 0, 160, 128);
         let rbuf = [];
         for (let i=0; i<640; i++) {
             rbuf[i] = 0;
