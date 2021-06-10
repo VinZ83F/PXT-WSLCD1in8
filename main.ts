@@ -1192,7 +1192,7 @@ namespace LCD1IN8 {
 	ligne1 = Math.round(ligne1/2);
 	ligne2 = Math.round(ligne2/2);
 	SPIRAM_Set_Mode(SRAM_STREAM_MODE);
-        LCD_SetWindows(0, 0, 160, 128);
+        LCD_SetWindows(ligne1, ligne2, 160, 128);
         let rbuf = [];
         for (let i=0; i<640; i++) {
             rbuf[i] = 0;
