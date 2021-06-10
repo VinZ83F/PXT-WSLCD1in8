@@ -4,7 +4,7 @@
 * | Function    :   Contorl 1.8inch lcd Show (only CAPS and Numbers)
 * | Info        :
 *----------------
-* | This version:   V2.0.2b
+* | This version:   V2.0.2c
 * | Date        :   2021-06-10
 * | Info        :   for micro:bit v2
 *
