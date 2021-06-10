@@ -1,7 +1,7 @@
 /*****************************************************************************
 * | File      	:   1in8LCD.ts
-* | Author      :   hnwangkg-ezio for Waveshare 
-* | Function    :   Contorl 1.8inch lcd Show
+* | Author      :   hnwangkg-ezio for Waveshare Modif Vincent CAMBRAY
+* | Function    :   Contorl 1.8inch lcd Show (Light)
 * | Info        :
 *----------------
 * | This version:   V2.0
