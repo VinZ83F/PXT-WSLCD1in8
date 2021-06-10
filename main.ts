@@ -1186,14 +1186,14 @@ namespace LCD1IN8 {
     //% weight=190
     export function LCD_Display(): void {
         SPIRAM_Set_Mode(SRAM_STREAM_MODE);
-        LCD_SetWindows(0, 0, 160, 128);
+        LCD_SetWindows(0, 0, 160, 12);
         let rbuf = [];
         for (let i=0; i<640; i++) {
             rbuf[i] = 0;
         }
 
         let rdata = 0;
-        for (let i = 0; i < 12; i++) { // read 2line 64
+        for (let i = 0; i < 6; i++) { // read 2line 64
             pins.digitalWritePin(DigitalPin.P2, 0);
             pins.spiWrite(SRAM_CMD_READ);
             pins.spiWrite(0);
