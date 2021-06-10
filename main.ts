@@ -1189,17 +1189,18 @@ namespace LCD1IN8 {
     export function LCD_Display(ligne1:number, ligne2:number): void {
         if (ligne1 > ligne2)
             Swop_AB(ligne1, ligne2);
-	ligne1 = Math.round(ligne1/2);
-	ligne2 = Math.round(ligne2/2);
 	SPIRAM_Set_Mode(SRAM_STREAM_MODE);
-        LCD_SetWindows(ligne1, ligne2, 160, 128);
+        LCD_SetWindows(0, ligne1, 160, ligne2);
         let rbuf = [];
         for (let i=0; i<640; i++) {
             rbuf[i] = 0;
         }
 
-        let rdata = 0;
-        for (let i = ligne1; i < ligne2; i++) { // read 2line 64
+	ligne1 = Math.round(ligne1/2);
+	ligne2 = Math.round(ligne2/2);
+
+	let rdata = 0;
+        for (let i = 0; i < ligne2-ligne1; i++) { // lecture de deux lignes a la fois
             pins.digitalWritePin(DigitalPin.P2, 0);
             pins.spiWrite(SRAM_CMD_READ);
             pins.spiWrite(0);
