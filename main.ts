@@ -945,25 +945,46 @@ let Font12_Table:number[] =
     0x00, //             
 ];
 
+enum PIXEL_COLOR {
+    //% blockIdentity=LCD1IN8._pixelColor
+    //% block="White"
+    WHITE = 0xFFFF, 	/*255,255,255*/
+    //% blockIdentity=LCD1IN8._pixelColor
+    //% block="Black"
+    BLACK = 0x0000, 	/*  0,  0,  0*/
+    //% blockIdentity=LCD1IN8._pixelColor
+    //% block="Blue"
+    BLUE = 0x001F,	/*  0,  0,255*/
+    //% blockIdentity=LCD1IN8._pixelColor
+    //% block="Red"
+    RED = 0xF800,	/*255,  0,  0*/
+    //% blockIdentity=LCD1IN8._pixelColor
+    //% block="Magenta"
+    MAG = 0xF81F,	/*255,  0,255*/
+    //% blockIdentity=LCD1IN8._pixelColor
+    //% block="Green"
+    GREEN = 0x07E0,	/*  0,255,  0*/
+    //% blockIdentity=LCD1IN8._pixelColor
+    //% block="Cyan"
+    CYAN = 0x7FFF,	/*  0,255,255*/
+    //% blockIdentity=LCD1IN8._pixelColor
+    //% block="Yellow"
+    YELLOW = 0xFFE0 	/*255,255,  0*/
+}
+
 
 pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
 pins.spiFormat(8, 0)
 pins.spiFrequency(18000000)
 
 //% weight=20 color=#436EEE icon="\uf108"
-namespace LCD1IN8 {
-	
-    export enum COLOR {
-    	WHITE = 0xFFFF, /*255,255,255*/
-    	BLACK = 0x0000, /*  0,  0,  0*/
-    	BLUE = 0x001F,	/*  0,  0,255*/
-    	RED = 0xF800,	/*255,  0,  0*/
-    	MAG = 0xF81F,	/*255,  0,255*/
-    	GREEN = 0x07E0,	/*  0,255,  0*/
-    	CYAN = 0x7FFF,	/*  0,255,255*/
-   	YELLOW = 0xFFE0 /*255,255,  0*/
-    }
-	
+namespace LCD1IN8 {	
+    /*bloc de la liste des couleurs*/
+    //% blockId=LCD1IN8PixelColor block="%note"
+    //% shim=TD_ID blockHidden=1
+    export function _pixelColor(type: PIXEL_COLOR): number {
+        return type;
+    }	
     //% blockId=LCD_Init
     //% blockGap=8
     //% block="LCD1IN8 Init"
