@@ -1,5 +1,5 @@
 {
-    "name": "LCD1in8",
+    "name": "LCD1in8 (No lower case)",
     "version": "2.0.3",
     "description": "waveshare electronics",
     "dependencies": {
