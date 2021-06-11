@@ -4,8 +4,8 @@
 * | Function    :   Contorl 1.8inch lcd Show (only CAPS and Numbers)
 * | Info        :
 *----------------
-* | This version:   V2.0.2e
-* | Date        :   2021-06-10
+* | This version:   V2.0.3
+* | Date        :   2021-06-11
 * | Info        :   for micro:bit v2
 *
 ******************************************************************************/
@@ -28,23 +28,6 @@ let SRAM_CMD_WRITE = 0x02
 let SRAM_BYTE_MODE = 0x00
 let SRAM_PAGE_MODE = 0x80
 let SRAM_STREAM_MODE = 0x40
-
-enum COLOR {
-    WHITE = 0xFFFF,
-    BLACK = 0x0000,
-    BLUE = 0x001F,
-    BRED = 0XF81F,
-    GRED = 0XFFE0,
-    GBLUE = 0X07FF,
-    RED = 0xF800,
-    MAGENTA = 0xF81F,
-    GREEN = 0x07E0,
-    CYAN = 0x7FFF,
-    YELLOW = 0xFFE0,
-    BROWN = 0XBC40,
-    BRRED = 0XFC07,
-    GRAY = 0X8430
-}
 
 enum DOT_PIXEL{
     DOT_PIXEL_1 = 1,
@@ -969,6 +952,24 @@ pins.spiFrequency(18000000)
 
 //% weight=20 color=#436EEE icon="\uf108"
 namespace LCD1IN8 {
+	
+    export enum COLOR {
+    	WHITE = 0xFFFF, /*255,255,255*/
+    	BLACK = 0x0000,
+    	BLUE = 0x001F,
+    	BRED = 0XF81F,
+    	GRED = 0XFFE0,
+    	GBLUE = 0X07FF,
+    	RED = 0xF800,
+    	MAGENTA = 0xF81F,
+    	GREEN = 0x07E0,
+    	CYAN = 0x7FFF,
+   	YELLOW = 0xFFE0,
+	BROWN = 0XBC40,
+    	BRRED = 0XFC07,
+    	GRAY = 0X8430
+    }
+	
     //% blockId=LCD_Init
     //% blockGap=8
     //% block="LCD1IN8 Init"
