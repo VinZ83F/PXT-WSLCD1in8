@@ -4,7 +4,7 @@
 * | Function    :   Contorl 1.8inch lcd Show (only CAPS and Numbers)
 * | Info        :
 *----------------
-* | This version:   V2.0.3a
+* | This version:   V2.0.3b
 * | Date        :   2021-06-11
 * | Info        :   for micro:bit v2
 *
@@ -961,7 +961,7 @@ namespace LCD1IN8 {
     	MAG = 0xF81F,	/*255,  0,255*/
     	GREEN = 0x07E0,	/*  0,255,  0*/
     	CYAN = 0x7FFF,	/*  0,255,255*/
-   	YELLOW = 0xFFE0,/*255,255,  0*/
+   	YELLOW = 0xFFE0 /*255,255,  0*/
     }
 	
     //% blockId=LCD_Init
