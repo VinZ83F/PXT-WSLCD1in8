@@ -4,7 +4,7 @@
 * | Function    :   Contorl 1.8inch lcd Show (only CAPS and Numbers)
 * | Info        :
 *----------------
-* | This version:   V2.0.3d
+* | This version:   V2.0.3e
 * | Date        :   2021-06-11
 * | Info        :   for micro:bit v2
 *
@@ -945,6 +945,17 @@ let Font12_Table:number[] =
     0x00, //             
 ];
 
+enum PIXEL_COLOR {
+
+    WHITE = 0xFFFF, 	/*255,255,255*/
+    BLACK = 0x0000, 	/*  0,  0,  0*/
+    BLUE = 0x001F,	/*  0,  0,255*/
+    RED = 0xF800,	/*255,  0,  0*/
+    MAG = 0xF81F,	/*255,  0,255*/
+    GREEN = 0x07E0,	/*  0,255,  0*/
+    CYAN = 0x7FFF,	/*  0,255,255*/
+    YELLOW = 0xFFE0 	/*255,255,  0*/
+}
 
 
 
@@ -954,39 +965,6 @@ pins.spiFrequency(18000000)
 
 //% weight=20 color=#436EEE icon="\uf108"
 namespace LCD1IN8 {
-    enum PIXEL_COLOR {
-	//% blockIdentity=LCD1IN8._pixelColor
-    	//% block="White"
-   	 WHITE = 0xFFFF, 	/*255,255,255*/
-    	//% blockIdentity=LCD1IN8._pixelColor
-    	//% block="Black"
-    	BLACK = 0x0000, 	/*  0,  0,  0*/
-    	//% blockIdentity=LCD1IN8._pixelColor
-   	//% block="Blue"
-    	BLUE = 0x001F,	/*  0,  0,255*/
-    	//% blockIdentity=LCD1IN8._pixelColor
-    	//% block="Red"
-    	RED = 0xF800,	/*255,  0,  0*/
-    	//% blockIdentity=LCD1IN8._pixelColor
-    	//% block="Magenta"
-    	MAG = 0xF81F,	/*255,  0,255*/
-    	//% blockIdentity=LCD1IN8._pixelColor
-    	//% block="Green"
-    	GREEN = 0x07E0,	/*  0,255,  0*/
-    	//% blockIdentity=LCD1IN8._pixelColor
-    	//% block="Cyan"
-    	CYAN = 0x7FFF,	/*  0,255,255*/
-    	//% blockIdentity=LCD1IN8._pixelColor
-    	//% block="Yellow"
-    	YELLOW = 0xFFE0 	/*255,255,  0*/
-    }
-	
-    /*bloc de la liste des couleurs*/
-    //% blockId=LCD1IN8PixelColor block="%note"
-    //% shim=TD_ID blockHidden=1
-    export function _pixelColor(type: PIXEL_COLOR): number {
-        return type;
-    }	
     //% blockId=LCD_Init
     //% blockGap=8
     //% block="LCD1IN8 Init"
@@ -1112,7 +1090,7 @@ namespace LCD1IN8 {
     //% blockGap=8
     //% block="Filling Color %Color"
     //% weight=195
-    export function LCD_Filling(Color: COLOR): void{
+    export function LCD_Filling(Color: PIXEL_COLOR): void{
         LCD_SetWindows(0, 0, LCD_WIDTH, LCD_HEIGHT);
         LCD_SetColor(Color, LCD_WIDTH + 2, LCD_HEIGHT + 2);
     }
