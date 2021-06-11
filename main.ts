@@ -945,19 +945,6 @@ let Font12_Table:number[] =
     0x00, //             
 ];
 
-enum PIXEL_COLOR {
-
-    WHITE = 0xFFFF, 	/*255,255,255*/
-    BLACK = 0x0000, 	/*  0,  0,  0*/
-    BLUE = 0x001F,	/*  0,  0,255*/
-    RED = 0xF800,	/*255,  0,  0*/
-    MAG = 0xF81F,	/*255,  0,255*/
-    GREEN = 0x07E0,	/*  0,255,  0*/
-    CYAN = 0x7FFF,	/*  0,255,255*/
-    YELLOW = 0xFFE0 	/*255,255,  0*/
-}
-
-
 
 pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
 pins.spiFormat(8, 0)
@@ -965,6 +952,20 @@ pins.spiFrequency(18000000)
 
 //% weight=20 color=#436EEE icon="\uf108"
 namespace LCD1IN8 {
+	
+
+    enum PIXEL_COLOR {
+        WHITE = 0xFFFF, 	/*255,255,255*/
+        BLACK = 0x0000, 	/*  0,  0,  0*/
+        BLUE = 0x001F,	/*  0,  0,255*/
+        RED = 0xF800,	/*255,  0,  0*/
+        MAG = 0xF81F,	/*255,  0,255*/
+        GREEN = 0x07E0,	/*  0,255,  0*/
+        CYAN = 0x7FFF,	/*  0,255,255*/
+        YELLOW = 0xFFE0 	/*255,255,  0*/
+    }
+
+	
     //% blockId=LCD_Init
     //% blockGap=8
     //% block="LCD1IN8 Init"
